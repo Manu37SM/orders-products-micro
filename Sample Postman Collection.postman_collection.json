@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "a21870d4-f1af-436f-ac74-68825ac9765f",
+		"name": "Sample Postman Collection",
+		"description": "Postman collection with full CRUD for Gateway, Products, and Orders microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "46796444",
+		"_collection_link": "https://manishkumarc.postman.co/workspace/12994b7a-bc33-4362-8f8d-05b18c613807/collection/46796444-a21870d4-f1af-436f-ac74-68825ac9765f?action=share&source=collection_link&creator=46796444"
+	},
+	"item": [
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "Get All Products (Gateway)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by ID (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							}
+						],
+						"url": "localhost:3000/products/225bb9e3-2d6d-424c-8170-4fcc9418a373"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"P003\",\n  \"name\": \"Product 2\",\n  \"description\": \"Second product\",\n  \"rate\": 200\n}"
+						},
+						"url": "localhost:3000/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product (Gateway)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Updated Product\" }"
+						},
+						"url": "localhost:3000/products/225bb9e3-2d6d-424c-8170-4fcc9418a373"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product (Gateway)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							}
+						],
+						"url": "localhost:3000/products/225bb9e3-2d6d-424c-8170-4fcc9418a373"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Orders (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							}
+						],
+						"url": "localhost:3000/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID (Gateway)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							}
+						],
+						"url": "localhost:3000/orders/dab514e5-c9db-406e-b03e-e78a2085193b"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order (Gateway)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{API_KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": { \"name\": \"John Doe\", \"phone\": \"1234567890\" },\n  \"products\": [{ \"productCode\": \"P001\", \"qty\": 2, \"rate\": 100 }]\n}"
+						},
+						"url": "localhost:3000/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products Service (Direct 3001)",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3001/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"code\": \"P002\", \"name\": \"Product 2\", \"rate\": 200 }"
+						},
+						"url": "localhost:3001/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Updated Product\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3001/products/40d7a493-b6a0-47d6-a8c2-43a8b467d939"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3001/products/40d7a493-b6a0-47d6-a8c2-43a8b467d939"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders Service (Direct 3002)",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3002/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": { \"name\": \"John Doe\", \"phone\": \"1234567890\" },\n  \"products\": [{ \"productCode\": \"P001\", \"qty\": 2, \"rate\": 100 }]\n}"
+						},
+						"url": "localhost:3002/orders"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "API_KEY",
+			"value": "7rW7gSENEOvmUdym0bSP8CN8Z8EYyXyy"
+		}
+	]
+}
