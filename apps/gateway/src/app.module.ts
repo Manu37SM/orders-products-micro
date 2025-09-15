@@ -14,4 +14,4 @@ import { join } from 'path';
   controllers: [ProxyController],
   providers: [ApiKeyGuard],
 })
-export class AppModule { }
+export class AppModule {}
