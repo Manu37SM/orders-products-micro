@@ -36,5 +36,9 @@ Run this command in Gateway src folder
 npm install @nestjs/config -- For APIKEY validation
 npm install @nestjs/jwt jsonwebtoken -- For JWT Token Validation
 
+To create a token again because expiry is 1 hour, use the below command in Gateway src folder 
+
+node -e "console.log(require('jsonwebtoken').sign({ user: 'manish' }, '62A8FBC7FFCDC9CB35A4734A863F2', { expiresIn: '1h' }))"
+
 > Note: This is a minimal scaffold intended to be expanded. TypeORM `synchronize: true` is enabled for development convenience.
 
