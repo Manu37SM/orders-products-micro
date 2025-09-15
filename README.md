@@ -33,7 +33,8 @@ npm install @nestjs/typeorm typeorm pg
 
 Run this command in Gateway src folder
 
-npm install @nestjs/config
+npm install @nestjs/config -- For APIKEY validation
+npm install @nestjs/jwt jsonwebtoken -- For JWT Token Validation
 
 > Note: This is a minimal scaffold intended to be expanded. TypeORM `synchronize: true` is enabled for development convenience.
 
