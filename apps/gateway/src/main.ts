@@ -1,4 +1,3 @@
-import { ApiKeyGuard } from './auth/api-key.guard';
 import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
@@ -9,7 +8,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
-  app.useGlobalGuards(new ApiKeyGuard()); // ✅ Require both API Key AND JWT
 
   const config = new DocumentBuilder()
     .setTitle('Gateway')
