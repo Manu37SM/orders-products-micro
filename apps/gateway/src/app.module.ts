@@ -3,6 +3,7 @@ import { ProxyController } from './proxy.controller';
 import { ApiKeyGuard } from './auth/api-key.guard';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { join } from 'path';
       isGlobal: true,
       envFilePath: join(__dirname, '../../.env'),
     }),
+    AuthModule,
   ],
   controllers: [ProxyController],
   providers: [ApiKeyGuard],
